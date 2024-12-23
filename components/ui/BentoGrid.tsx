@@ -1,5 +1,12 @@
+'use client'
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
+import { BackgroundLines } from "./background-lines";
+import Lottie from "react-lottie";
+import { useState } from "react";
+import animationData from '@/data/confetti.json'
+import MagicButton from "./MagicButton";
+import { IoCopyOutline } from "react-icons/io5";
 
 export const BentoGrid = ({
   className,
@@ -42,10 +49,18 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+
+const [copied, setCopied] = useState(false)
+
+const handleCopy = () => {
+  navigator.clipboard.writeText('myemail@myemail.com');
+  setCopied(true);
+}
+
   return (
     <div
       className={cn(
-        "row-span-1 relative rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
+        "row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none   justify-between flex flex-col space-y-4 border border-white/[0.1]",
         className
       )}
       style={{
@@ -60,7 +75,7 @@ export const BentoGridItem = ({
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover,object-center")}
+              className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
         </div>
@@ -81,9 +96,9 @@ export const BentoGridItem = ({
 
         {id === 6 && (
           //render animation
-          <BackgroundGradientAnimation>
-            <div className="absolute z-50 flex items-center justify-center text-white font-bold"></div>
-          </BackgroundGradientAnimation>
+          <BackgroundGradientAnimation/>
+   
+        
         )}
 
         <div
@@ -98,6 +113,71 @@ export const BentoGridItem = ({
           <div className="font-sans font-bold text-lg text-neutral-200 lg:text-3xl max-w-96 z-10">
             {title}
           </div>
+          {id === 2 && (
+            <BackgroundLines>
+              <div></div>
+            </BackgroundLines>
+          )}
+          {id === 3 && (
+            <div className="flex gap-1 lg:gap-5 w-fit relative -right-3 lg:right-2">
+              <div className=" flex flex-col relative gap-3 lg:gap-8">
+                {["React.js", "Next.js", "Typescript"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-3 lg:py-4 lg:px-5 px-3 mt-3 text-xs lg:text-base opacity-50 lg:opacity-80 rounded-xl text-center bg-[#10132e] "
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <div className=" flex flex-col relative gap-3 lg:gap-8">
+                {["Javascript", "HTML", "CSS"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-3 lg:py-4 lg:px-5 px-3 mt-3 text-xs lg:text-base opacity-50 lg:opacity-80 rounded-xl text-center bg-[#10132e] "
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="py-4 px-3 rounded-xl bg-[#10132e]" />
+              </div>
+              <div className=" flex flex-col relative gap-3 lg:gap-8">
+                {["C#", "Azure", "MySQL"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-3 lg:py-4 lg:px-5 px-3 mt-3 text-xs lg:text-base opacity-50 lg:opacity-80 rounded-xl text-center bg-[#10132e] "
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {id === 6 && (
+            <div className="mt-5 relative">
+              <div className={'absolute -bottom-5 right-0'}>
+                <Lottie
+                  options={{
+                    loop: copied,
+                    autoplay: copied,
+                    animationData,
+                    rendererSettings: {
+                      preserveAspectRatio:'xMidYMid slice',
+                    }
+
+                  }}
+                />
+              </div>
+                    <MagicButton
+                      title={copied ? 'Email copied' : 'Copy my Email'}
+                      icon={ <IoCopyOutline />}
+                      position="left"
+                      otherClasses="!bg-[#161a31 z-10"
+                      handleClick={handleCopy}
+                    />
+            </div>
+          ) }
         </div>
       </div>
     </div>

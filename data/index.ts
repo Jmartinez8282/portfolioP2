@@ -1,6 +1,7 @@
 export const navItems = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
+  { name: "Home", link: "/" },
+  { name: "About", link: "#about" },
+  { name: "Projects", link: "#projects" },
     { name: "Testimonials", link: "#testimonials" },
     { name: "Contact", link: "#contact" },
   ];
@@ -58,8 +59,8 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "E-Learning Platform for Developers",
-      description: "Access coding tutorials, challenges, and mentorship in one place.",
+      title: "Lets start a project together.",
+      description: "Click on the Magic Button below to copy my email",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
       titleClassName: "justify-center md:max-w-full max-w-60 text-center",
@@ -215,3 +216,6 @@ export const navItems = [
       img: "/link.svg",
     },
   ];
+
+
+ 

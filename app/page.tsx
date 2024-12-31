@@ -16,7 +16,7 @@ export const fetchCache = "force-no-store";
 
 export default function Home() {
   return (
-    // <TracingBeam>
+    // <TracingBeam>/
 
 
     <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-hidden">

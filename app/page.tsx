@@ -10,6 +10,8 @@ import Hero from "@/components/ui/Hero";
 import { MatrixCard } from "@/components/ui/MatrixCard";
 
 import { navItems } from "@/data";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default function Home() {
   return (

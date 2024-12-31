@@ -17,11 +17,11 @@ export const fetchCache = "force-no-store";
 export default function Home() {
   return (
     // <TracingBeam>
-    <Suspense fallback="loading">
 
 
     <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-hidden">
       <div className="max-w-7xl w-full ">
+      <Suspense fallback="loading">
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />
@@ -29,8 +29,8 @@ export default function Home() {
         <Clients />
         <MatrixCard />
         <Footer />
+    </Suspense>
       </div>
     </main>
-    </Suspense>
   );
 }

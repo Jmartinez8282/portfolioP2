@@ -71,8 +71,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
-/* @layer utilities {
+@layer utilities {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
-} */
+}

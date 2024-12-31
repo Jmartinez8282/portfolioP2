@@ -10,12 +10,15 @@ import Hero from "@/components/ui/Hero";
 import { MatrixCard } from "@/components/ui/MatrixCard";
 
 import { navItems } from "@/data";
+import { Suspense } from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 export default function Home() {
   return (
     // <TracingBeam>
+    <Suspense>
+
 
     <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-hidden">
       <div className="max-w-7xl w-full ">
@@ -28,5 +31,6 @@ export default function Home() {
         <Footer />
       </div>
     </main>
+    </Suspense>
   );
 }

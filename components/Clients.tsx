@@ -10,7 +10,7 @@ const Clients = () => {
           What my Clients {""}
           <span className="text-purple"> have to say!</span>
         </h1>
-        <div className="flex flex-col items-center justify-center max-lg:mt-10 "></div>
+        {/* <div className="flex flex-col items-center justify-center max-lg:mt-10 "></div> */}
 
         <div className="flex flex-col items-center mx-lg:mt-10">
           <InfiniteMovingCards

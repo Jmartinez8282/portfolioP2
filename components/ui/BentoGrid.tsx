@@ -1,7 +1,7 @@
 'use client'
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import { BackgroundLines } from "./background-lines";
+import { BackgroundLines } from "./BackgroundLines";
 import Lottie from "react-lottie";
 import { useState } from "react";
 import animationData from '@/data/confetti.json'
